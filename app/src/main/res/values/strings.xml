@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">My DCCar</string>
+    <string name="app_name">MyDCCar</string>
+    <string name="DefaultMessage">Message</string>
+    <string name="connect">Connect</string>
+    <string name="DefaultIP">10.2.1.151</string>
+    <string name="DefaultPort">8080</string>
+	
+</resources>

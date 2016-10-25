@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:id="@+id/activity_main3"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:weightSum="1"
+    android:background="@drawable/allbg"
+    >
+    <RelativeLayout
+        android:id="@+id/btncontrol"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:background="#000000"
+        >
+        <ImageButton
+            android:id="@+id/forward"
+            android:src="@drawable/forward"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            >
+        </ImageButton>
+        <ImageButton
+            android:id="@+id/left"
+            android:src="@drawable/left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="15px"
+            android:layout_below="@+id/forward"
+            android:layout_toLeftOf="@+id/forward"
+            >
+        </ImageButton>
+        <ImageButton
+            android:id="@+id/right"
+            android:src="@drawable/right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/left"
+            android:layout_toRightOf="@+id/forward"
+            >
+        </ImageButton>
+        <ImageButton
+            android:id="@+id/backward"
+            android:src="@drawable/backward"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/left"
+            android:layout_alignLeft="@+id/forward"
+            android:layout_alignRight="@+id/forward"
+            >
+        </ImageButton>
+    </RelativeLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="回上頁"
+        android:onClick="back"
+        />
+
+
+
+</LinearLayout>

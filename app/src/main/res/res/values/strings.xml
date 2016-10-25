@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">WiFi Robot</string>
+    <string name="app_name">WiFiRobot</string>
+    <string name="DefaultMessage">Message</string>
+    <string name="connect">Connect</string>
+    <string name="DefaultIP">192.168.11.127</string>
+    <string name="DefaultPort">80</string>
+	
+</resources>
