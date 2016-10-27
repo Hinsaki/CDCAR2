@@ -20,7 +20,7 @@ public class Main2Activity extends Activity {
     }
 
     private void goStart() {
-        Intent intent = new Intent(this, Main3Activity.class);
+        Intent intent = new Intent(this, buttoncontrol.class);
         startActivity(intent);
     }
 

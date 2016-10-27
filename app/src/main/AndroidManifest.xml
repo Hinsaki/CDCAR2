@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="allan.mydccar">
-    <uses-permission android:name="android.permission.INTERNET" />      
-    <application android:icon="@drawable/icon" android:label="@string/app_name">
+    package="allan.mydccar">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <!--修改網路狀態的許可權-->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!--修改wifi狀態的許可權-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--訪問網路許可權-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--訪問wifi許可權-->
+    <uses-permission android:name="android.permission.MODIFY_PHONE_STATE" />
+
+    <application
+        android:icon="@drawable/icon"
+        android:label="@string/app_name">
         <activity android:name=".Welcome">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -11,15 +23,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".rpiwifirobot"/>
-		<activity android:name=".buttoncontrol"/>
-        <activity android:name=".sensorcontrol"/>
+        <activity android:name=".rpiwifirobot" />
+        <activity android:name=".buttoncontrol" />
+        <activity android:name=".sensorcontrol" />
         <activity android:name=".Main2Activity" />
         <activity android:name=".Main3Activity" />
         <activity android:name=".Main4Activity" />
         <activity android:name=".Main5Activity" />
         <activity android:name=".Main6Activity" />
-
+        <activity android:name=".WiFi"></activity>
     </application>
 
-</manifest> 
+</manifest>

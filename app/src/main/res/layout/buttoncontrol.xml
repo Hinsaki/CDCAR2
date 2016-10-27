@@ -62,23 +62,6 @@
             android:text="回上頁"
             android:onClick="back"
             />
-        <EditText
-            android:id="@+id/path"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="http://i0.itc.cn/20101105/3ab_77a0625b_5eac_4b59_8b41_88530b0ec2f7_2.jpg"
-            />
-        <Button
-            android:id="@+id/getimage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="抓取圖片"
-            />
-        <ImageView
-            android:id="@+id/imageview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
     </RelativeLayout>
 
     </LinearLayout>

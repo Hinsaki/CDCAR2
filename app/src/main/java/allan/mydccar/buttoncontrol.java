@@ -202,7 +202,7 @@ public class buttoncontrol extends Activity {
                 break;
 
             case 2:  // About
-                Toast.makeText(this, "Author: http://motoduino.com", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "allan", Toast.LENGTH_SHORT).show();
                 break;
         }
 
