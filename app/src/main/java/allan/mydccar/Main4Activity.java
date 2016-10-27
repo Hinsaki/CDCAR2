@@ -111,4 +111,12 @@ public class Main4Activity extends Activity {
             mImg.setImageBitmap(mScaleBitmap);
         } else mImg.setImageBitmap(bitmap);
     }
+    public void back(View v) {
+        goBack();
+    }
+
+    private void goBack() {
+        Intent intent = new Intent(this, Main2Activity.class);
+        startActivity(intent);
+    }
 }
