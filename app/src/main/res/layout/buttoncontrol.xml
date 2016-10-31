@@ -1,69 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@drawable/allbg"
-    >
-        <WebView
-            android:id="@+id/webview"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:layout_alignParentTop="true">
-        </WebView>
+    android:orientation="vertical">
+
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_alignParentTop="true">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/a1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="溫度:" />
+
+            <TextView
+                android:id="@+id/json_hh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/a2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="濕度" />
+
+            <TextView
+                android:id="@+id/json_co2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/a3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PM2.5" />
+
+            <TextView
+                android:id="@+id/json_tm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/a4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="瓦斯濃度" />
+
+            <TextView
+                android:id="@+id/json_e"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/a5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="狀態:" />
+
+            <ImageView
+                android:id="@+id/img_bad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bad"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+    </WebView>
+
     <RelativeLayout
         android:id="@+id/btncontrol"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        >
+        android:layout_height="fill_parent">
+
         <ImageButton
             android:id="@+id/forward"
-            android:src="@drawable/forward"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            >
-        </ImageButton>
+            android:src="@drawable/forward"></ImageButton>
+
         <ImageButton
             android:id="@+id/left"
-            android:src="@drawable/left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="15px"
             android:layout_below="@+id/forward"
             android:layout_toLeftOf="@+id/forward"
-            >
-        </ImageButton>
+
+            android:src="@drawable/left"></ImageButton>
+
         <ImageButton
             android:id="@+id/right"
-            android:src="@drawable/right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/left"
             android:layout_toRightOf="@+id/forward"
-            >
-        </ImageButton>
+            android:src="@drawable/right"></ImageButton>
+
         <ImageButton
             android:id="@+id/backward"
-            android:src="@drawable/backward"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/left"
             android:layout_alignLeft="@+id/forward"
             android:layout_alignRight="@+id/forward"
-            >
-        </ImageButton>
+            android:layout_below="@+id/left"
+            android:src="@drawable/backward"></ImageButton>
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="回上頁"
             android:onClick="back"
-            />
+            android:text="回上頁" />
     </RelativeLayout>
 
-    </LinearLayout>
+</LinearLayout>
 
 
