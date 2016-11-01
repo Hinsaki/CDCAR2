@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.Toast;
 
@@ -18,22 +20,28 @@ import lecho.lib.hellocharts.model.LineChartData;
 import lecho.lib.hellocharts.model.Viewport;
 import lecho.lib.hellocharts.view.LineChartView;
 
-public class Main5Activity extends Activity {
+public class Main5Activity extends ActionBarActivity  {
     private LineChartView chartView;
+    private LineChartView chartView2;
+    private LineChartView chartView3;
+    private LineChartView chartView4;
     private  ThingSpeakChannel tsChannel;
     private ThingSpeakLineChart tsChart;
+    private ThingSpeakLineChart tsChart2;
+    private ThingSpeakLineChart tsChart3;
+    private ThingSpeakLineChart tsChart4;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main5);
-        tsChannel = new ThingSpeakChannel(175423,"IX7NYHNA0C135TXT");
+        tsChannel = new ThingSpeakChannel(173441,"BTNMKI5MV1A8CJMM");
         tsChannel.setChannelFeedUpdateListener(new ThingSpeakChannel.ChannelFeedUpdateListener() {
             @Override
             public void onChannelFeedUpdated(long channelId, String channelName, ChannelFeed channelFeed) {
-                getActionBar().setTitle(channelName);
-                getActionBar().setSubtitle("Channel " + channelId);
+                getSupportActionBar().setTitle(channelName);
+                getSupportActionBar().setSubtitle("Channel " + channelId);
                 Date lastUpdate = channelFeed.getChannel().getUpdatedAt();
                 Toast.makeText(Main5Activity.this, lastUpdate.toString(), Toast.LENGTH_LONG).show();
             }
@@ -42,10 +50,19 @@ public class Main5Activity extends Activity {
         chartView = (LineChartView) findViewById(R.id.chart1);
         chartView.setZoomEnabled(false);
         chartView.setValueSelectionEnabled(true);
+        chartView2 = (LineChartView) findViewById(R.id.chart2);
+        chartView2.setZoomEnabled(false);
+        chartView2.setValueSelectionEnabled(true);
+        chartView3 = (LineChartView) findViewById(R.id.chart3);
+        chartView3.setZoomEnabled(false);
+        chartView3.setValueSelectionEnabled(true);
+        chartView4 = (LineChartView) findViewById(R.id.chart4);
+        chartView4.setZoomEnabled(false);
+        chartView4.setValueSelectionEnabled(true);
         Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.MINUTE, -5);
-        tsChart = new ThingSpeakLineChart(175423,3);
-        tsChart.setNumberOfEntries(10);
+        calendar.add(Calendar.MILLISECOND, -500);
+        tsChart = new ThingSpeakLineChart(173441,1);
+        tsChart.setNumberOfEntries(2);
         tsChart.setValueAxisLabelInterval(5);
         tsChart.setDateAxisLabelInterval(1);
         tsChart.useSpline(true);
@@ -63,7 +80,70 @@ public class Main5Activity extends Activity {
             }
 
         });
+        tsChart2 = new ThingSpeakLineChart(173441,2);
+        tsChart2.loadChartData();
+        tsChart2.setNumberOfEntries(2);
+        tsChart2.setValueAxisLabelInterval(5);
+        tsChart2.setDateAxisLabelInterval(1);
+        tsChart2.useSpline(true);
+        tsChart2.setLineColor(Color.parseColor("#00ff2a"));
+        tsChart2.setAxisColor(Color.parseColor("#455a64"));
+        tsChart2.setChartStartDate(calendar.getTime());
+        tsChart2.setListener(new ThingSpeakLineChart.ChartDataUpdateListener() {
+            @Override
+            public void onChartDataUpdated(long channelId, int fieldId, String title, LineChartData lineChartData, Viewport maxViewport, Viewport initialViewport) {
+                chartView2.setLineChartData(lineChartData);
+                // Set scrolling bounds of the chart
+                chartView2.setMaximumViewport(maxViewport);
+                // Set the initial chart bounds
+                chartView2.setCurrentViewport(initialViewport);
+            }
+
+        });
+        tsChart3 = new ThingSpeakLineChart(173441,3);
+        tsChart3.loadChartData();
+        tsChart3.setNumberOfEntries(2);
+        tsChart3.setValueAxisLabelInterval(5);
+        tsChart3.setDateAxisLabelInterval(1);
+        tsChart3.useSpline(false);
+        tsChart3.setLineColor(Color.parseColor("#0021ff"));
+        tsChart3.setAxisColor(Color.parseColor("#455a64"));
+        tsChart3.setChartStartDate(calendar.getTime());
+        tsChart3.setListener(new ThingSpeakLineChart.ChartDataUpdateListener() {
+            @Override
+            public void onChartDataUpdated(long channelId, int fieldId, String title, LineChartData lineChartData, Viewport maxViewport, Viewport initialViewport) {
+                chartView3.setLineChartData(lineChartData);
+                // Set scrolling bounds of the chart
+                chartView3.setMaximumViewport(maxViewport);
+                // Set the initial chart bounds
+                chartView3.setCurrentViewport(initialViewport);
+            }
+
+        });
+        tsChart4 = new ThingSpeakLineChart(173441,4);
+        tsChart4.loadChartData();
+        tsChart4.setNumberOfEntries(2);
+        tsChart4.setValueAxisLabelInterval(5);
+        tsChart4.setDateAxisLabelInterval(1);
+        tsChart4.useSpline(false);
+        tsChart4.setLineColor(Color.parseColor("#ff006e"));
+        tsChart4.setAxisColor(Color.parseColor("#455a64"));
+        tsChart4.setChartStartDate(calendar.getTime());
+        tsChart4.setListener(new ThingSpeakLineChart.ChartDataUpdateListener() {
+            @Override
+            public void onChartDataUpdated(long channelId, int fieldId, String title, LineChartData lineChartData, Viewport maxViewport, Viewport initialViewport) {
+                chartView4.setLineChartData(lineChartData);
+                // Set scrolling bounds of the chart
+                chartView4.setMaximumViewport(maxViewport);
+                // Set the initial chart bounds
+                chartView4.setCurrentViewport(initialViewport);
+            }
+
+        });
         tsChart.loadChartData();
+        tsChart2.loadChartData();
+        tsChart3.loadChartData();
+        tsChart4.loadChartData();
 
     }
     public void refresh(View v){
