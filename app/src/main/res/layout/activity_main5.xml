@@ -3,10 +3,6 @@
     android:id="@+id/activity_main5"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     android:clipToPadding="false"
     android:orientation="vertical"
     >
@@ -31,12 +27,16 @@
         android:layout_height="match_parent"
         android:layout_weight="1"/>
     <Button
+        android:background="@drawable/btn"
+        style="@style/ButtonText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="刷新資料"
         android:onClick="refresh"
         />
     <Button
+        android:background="@drawable/btn"
+        style="@style/ButtonText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="回上頁"

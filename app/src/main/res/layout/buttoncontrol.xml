@@ -7,9 +7,10 @@
     android:orientation="vertical">
 
     <WebView
+        android:layout_weight="1"
         android:id="@+id/webview"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="match_parent"
         android:layout_alignParentTop="true">
 
         <LinearLayout
@@ -45,7 +46,7 @@
                 android:id="@+id/a3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="PM2.5" />
+                android:text="瓦斯濃度" />
 
             <TextView
                 android:id="@+id/json_tm"
@@ -57,7 +58,7 @@
                 android:id="@+id/a4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="瓦斯濃度" />
+                android:text="PM2.5" />
 
             <TextView
                 android:id="@+id/json_e"
@@ -80,52 +81,34 @@
         </LinearLayout>
 
     </WebView>
+    <WebView
+        android:layout_weight="1"
+        android:id="@+id/webview1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true">
 
+    </WebView>
     <RelativeLayout
+        android:layout_weight="1.7"
         android:id="@+id/btncontrol"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
 
-        <ImageButton
-            android:id="@+id/forward"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/forward"></ImageButton>
-
-        <ImageButton
-            android:id="@+id/left"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/forward"
-            android:layout_toLeftOf="@+id/forward"
-
-            android:src="@drawable/left"></ImageButton>
-
-        <ImageButton
-            android:id="@+id/right"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/left"
-            android:layout_toRightOf="@+id/forward"
-            android:src="@drawable/right"></ImageButton>
-
-        <ImageButton
-            android:id="@+id/backward"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/forward"
-            android:layout_alignRight="@+id/forward"
-            android:layout_below="@+id/left"
-            android:src="@drawable/backward"></ImageButton>
-
         <Button
-            android:layout_width="wrap_content"
+            android:background="@drawable/btn"
+            style="@style/ButtonText"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="back"
-            android:text="回上頁" />
+            android:text="回上頁"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/button" />
     </RelativeLayout>
+
+
 
 </LinearLayout>
 

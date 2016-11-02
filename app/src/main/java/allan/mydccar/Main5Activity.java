@@ -25,7 +25,7 @@ public class Main5Activity extends ActionBarActivity  {
     private LineChartView chartView2;
     private LineChartView chartView3;
     private LineChartView chartView4;
-    private  ThingSpeakChannel tsChannel;
+    private ThingSpeakChannel tsChannel;
     private ThingSpeakLineChart tsChart;
     private ThingSpeakLineChart tsChart2;
     private ThingSpeakLineChart tsChart3;
@@ -36,7 +36,7 @@ public class Main5Activity extends ActionBarActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main5);
-        tsChannel = new ThingSpeakChannel(173441,"BTNMKI5MV1A8CJMM");
+        tsChannel = new ThingSpeakChannel(173441,"GSTUCV50DKHDP1J3");
         tsChannel.setChannelFeedUpdateListener(new ThingSpeakChannel.ChannelFeedUpdateListener() {
             @Override
             public void onChannelFeedUpdated(long channelId, String channelName, ChannelFeed channelFeed) {
@@ -60,10 +60,10 @@ public class Main5Activity extends ActionBarActivity  {
         chartView4.setZoomEnabled(false);
         chartView4.setValueSelectionEnabled(true);
         Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.MILLISECOND, -500);
+        calendar.add(Calendar.MINUTE, -5);
         tsChart = new ThingSpeakLineChart(173441,1);
-        tsChart.setNumberOfEntries(2);
-        tsChart.setValueAxisLabelInterval(5);
+        tsChart.setNumberOfEntries(200);
+        tsChart.setValueAxisLabelInterval(10);
         tsChart.setDateAxisLabelInterval(1);
         tsChart.useSpline(true);
         tsChart.setLineColor(Color.parseColor("#D32F2F"));
@@ -82,8 +82,8 @@ public class Main5Activity extends ActionBarActivity  {
         });
         tsChart2 = new ThingSpeakLineChart(173441,2);
         tsChart2.loadChartData();
-        tsChart2.setNumberOfEntries(2);
-        tsChart2.setValueAxisLabelInterval(5);
+        tsChart2.setNumberOfEntries(200);
+        tsChart2.setValueAxisLabelInterval(10);
         tsChart2.setDateAxisLabelInterval(1);
         tsChart2.useSpline(true);
         tsChart2.setLineColor(Color.parseColor("#00ff2a"));
@@ -102,8 +102,8 @@ public class Main5Activity extends ActionBarActivity  {
         });
         tsChart3 = new ThingSpeakLineChart(173441,3);
         tsChart3.loadChartData();
-        tsChart3.setNumberOfEntries(2);
-        tsChart3.setValueAxisLabelInterval(5);
+        tsChart3.setNumberOfEntries(200);
+        tsChart3.setValueAxisLabelInterval(10);
         tsChart3.setDateAxisLabelInterval(1);
         tsChart3.useSpline(false);
         tsChart3.setLineColor(Color.parseColor("#0021ff"));
@@ -122,10 +122,10 @@ public class Main5Activity extends ActionBarActivity  {
         });
         tsChart4 = new ThingSpeakLineChart(173441,4);
         tsChart4.loadChartData();
-        tsChart4.setNumberOfEntries(2);
-        tsChart4.setValueAxisLabelInterval(5);
+        tsChart4.setNumberOfEntries(200);
+        tsChart4.setValueAxisLabelInterval(10);
         tsChart4.setDateAxisLabelInterval(1);
-        tsChart4.useSpline(false);
+        tsChart4.useSpline(true);
         tsChart4.setLineColor(Color.parseColor("#ff006e"));
         tsChart4.setAxisColor(Color.parseColor("#455a64"));
         tsChart4.setChartStartDate(calendar.getTime());
@@ -150,9 +150,7 @@ public class Main5Activity extends ActionBarActivity  {
         refresh();
     }
     private void refresh() {
-        finish();
-        Intent intent = new Intent(Main5Activity.this, Main5Activity.class);
-        startActivity(intent);
+        Main5Activity.this.recreate();
     }
     public void back(View v) {
         goBack();

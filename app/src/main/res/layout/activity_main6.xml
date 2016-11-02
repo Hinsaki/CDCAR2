@@ -3,13 +3,18 @@
     android:id="@+id/activity_main6"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/allbg"
+    android:background="@drawable/bg2"
     >
+
     <Button
+        android:background="@drawable/btn"
+        style="@style/ButtonText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="回上頁"
         android:onClick="back"
-        />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/button2" />
 
 </RelativeLayout>

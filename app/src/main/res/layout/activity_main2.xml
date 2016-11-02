@@ -1,52 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
+    android:gravity="center"
     android:id="@+id/activity_main2"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
 
     android:orientation="vertical"
-    android:background="@drawable/allbg"
+    android:background="@drawable/bg1"
     >
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Brad's Size"
+        android:text="CDCAR"
         android:textSize="36dp"
-        android:gravity="center"
         />
     <Button
-        android:layout_width="match_parent"
+        android:background="@drawable/btn"
+        style="@style/ButtonText"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start Control"
+        android:text="GO"
         android:onClick="sc"
         />
+
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="連接WiFi"
-        android:onClick="WiFi"
-        />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Sensor"
-        android:onClick="Sen"
-        />
-    <Button
-        android:layout_width="match_parent"
+        android:background="@drawable/btn"
+        style="@style/ButtonText"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="相簿"
         android:onClick="photo"
         />
     <Button
-        android:layout_width="match_parent"
+        android:background="@drawable/btn"
+        style="@style/ButtonText"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="資料"
         android:onClick="data"
         />
     <Button
-        android:layout_width="match_parent"
+        android:background="@drawable/btn"
+        style="@style/ButtonText"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="關於我們"
         android:onClick="us"

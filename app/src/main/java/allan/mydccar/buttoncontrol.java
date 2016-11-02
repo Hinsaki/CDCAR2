@@ -8,6 +8,7 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Message;
+import android.support.v7.app.NotificationCompat;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -53,140 +54,48 @@ public class buttoncontrol extends Activity {
     private ImageView img;
     private Timer mTimer;
     private MyTread mt1;
-    ImageButton button_left, button_right, button_forward, button_back;
+
 
     private static final String TAG = "buttoncontrol";
     private static final boolean D = true;
     private WebView m_WV;
+    private WebView m_WV1;
 
-    // Key names received from the BluetoothChatService Handler
-    public static final String DEVICE_NAME = "device_name";
-    public static final String TOAST = "toast";
-
-    public void MyActivity() {
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.buttoncontrol);
-        mesg_one =(TextView)findViewById(R.id.json_hh);
-        mesg_two=(TextView)findViewById(R.id.json_co2);
-        mesg_three=(TextView)findViewById(R.id.json_e);
-        mesg_four=(TextView)findViewById(R.id.json_tm);
-        cmgr =(ConnectivityManager)getSystemService(CONNECTIVITY_SERVICE);
+        mesg_one = (TextView) findViewById(R.id.json_hh);
+        mesg_two = (TextView) findViewById(R.id.json_co2);
+        mesg_three = (TextView) findViewById(R.id.json_e);
+        mesg_four = (TextView) findViewById(R.id.json_tm);
+        cmgr = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
         NetworkInfo info = cmgr.getActiveNetworkInfo();
         handler = new UIHandler();
-        img =(ImageView)findViewById(R.id.img_bad);
+        img = (ImageView) findViewById(R.id.img_bad);
         mTimer = new Timer();
         setTimerTask();
         m_WV = (WebView) findViewById(R.id.webview);
+        m_WV1 = (WebView) findViewById(R.id.webview1);
         WebSettings webSettings = m_WV.getSettings();
         webSettings.setJavaScriptEnabled(true);
-
-
-        if (D) Log.e(TAG, "+++ ON CREATE +++");
-
-        // my button control
-        button_forward = (ImageButton) findViewById(R.id.forward);
-        button_back = (ImageButton) findViewById(R.id.backward);
-        button_left = (ImageButton) findViewById(R.id.left);
-        button_right = (ImageButton) findViewById(R.id.right);
-
-        button_forward.setOnTouchListener(new OnTouchListener() {
-            //            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction() == MotionEvent.ACTION_UP) {
-
-                    Log.i(TAG, "FORWARD BUTTON UP =" + event.getAction());
-                    rpiwifirobot.mNetworkService.dataSend("s");
-                } else if (event.getAction() == MotionEvent.ACTION_DOWN) {
-
-                    Log.i(TAG, "FORWARD BUTTON DOWN =" + event.getAction());
-                    rpiwifirobot.mNetworkService.dataSend("f");
-                }
-                return true;
-
-            }
-        });
-
-        button_back.setOnTouchListener(new OnTouchListener() {
-            //            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction() == MotionEvent.ACTION_UP) {
-
-                    Log.i(TAG, "BACK BUTTON UP =" + event.getAction());
-                    rpiwifirobot.mNetworkService.dataSend("s");
-                } else if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                    Log.i(TAG, "BACK BUTTON DOWN =" + event.getAction());
-                    rpiwifirobot.mNetworkService.dataSend("b");
-                }
-                return true;
-
-            }
-        });
-
-        button_left.setOnTouchListener(new OnTouchListener() {
-            //            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction() == MotionEvent.ACTION_UP) {
-
-                    Log.i(TAG, "LEFT BUTTON UP =" + event.getAction());
-                    rpiwifirobot.mNetworkService.dataSend("s");
-                } else if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                    Log.i(TAG, "LEFT BUTTON DOWN =" + event.getAction());
-                    rpiwifirobot.mNetworkService.dataSend("l");
-                }
-                return true;
-            }
-        });
-
-        button_right.setOnTouchListener(new OnTouchListener() {
-            //            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction() == MotionEvent.ACTION_UP) {
-
-                    Log.i(TAG, "RIGHT BUTTON UP =" + event.getAction());
-                    rpiwifirobot.mNetworkService.dataSend("s");
-                } else if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                    Log.i(TAG, "RIGHT BUTTON DOWN =" + event.getAction());
-                    rpiwifirobot.mNetworkService.dataSend("r");
-                }
-                return true;
-            }
-        });
-        if (info != null && info.isConnected()){
-            try {
-                Enumeration<NetworkInterface> ifs = NetworkInterface.getNetworkInterfaces();
-                while (ifs.hasMoreElements()){
-                    NetworkInterface ip = ifs.nextElement();
-                    Enumeration<InetAddress> ips = ip.getInetAddresses();
-                    while (ips.hasMoreElements()){
-                        InetAddress ia = ips.nextElement();
-                        Log.d("brad", ia.getHostAddress());
-                    }
-                }
-
-
-            } catch (SocketException e) {
-                e.printStackTrace();
-            }
-        }else{
-            Log.d("brad", "NOT Connect");
-        }
+        WebSettings webSettings1 = m_WV1.getSettings();
+        webSettings1.setJavaScriptEnabled(true);
 
     }
-
-
-
 
     //    @Override
     public void onStart() {
         super.onStart();
-        String strRbtUrl = "https://mcs.mediatek.com/v2console/zh-TW/testdevices/DzDkkseX";
+        String strRbtUrl = "http://10.2.1.151:8080/?action=stream";
+        String strRbtUrl1 = "https://mcs.mediatek.com/v2console/zh-TW/testdevices/DzDkkseX";
         m_WV.loadUrl(strRbtUrl);
         m_WV.setWebViewClient(new WebViewClientImpl());
-        if (D) Log.i(TAG, "++ ON START ++");
+        m_WV1.loadUrl(strRbtUrl1);
+        m_WV1.setWebViewClient(new WebViewClientImpl());
+
 
     }
 
@@ -235,7 +144,7 @@ public class buttoncontrol extends Activity {
                 message.what = 1;
                 handler.sendMessage(message);
             }
-        }, 0, 5000/* 表示1000毫秒之後，每隔1000毫秒執行一次 */);
+        }, 0, 1000/* 表示1000毫秒之後，每隔1000毫秒執行一次 */);
     }
     private class MyTread extends Thread {
 
@@ -282,26 +191,31 @@ public class buttoncontrol extends Activity {
 
     }
     private  void changeState(){
-        float expend = (float) 20.0;
+        float dd = (float) 30.0;
+        float ff = (float) 60.0;
+        float gg = (float) 400.0;
+        float hh = (float) 1000.0;
         float d = Float.valueOf(String.valueOf(sb_one)).floatValue();
         float f = Float.valueOf(String.valueOf(sb_two)).floatValue();
         float g = Float.valueOf(String.valueOf(sb_three)).floatValue();
         float h = Float.valueOf(String.valueOf(sb_four)).floatValue();
 
+
+
         Log.d("brad","float:"+d);
-        if(d>expend){
+        if(d>dd){
             Log.d("brad","Warring");
             img.setVisibility(View.VISIBLE);
         }
-        if(f>expend){
+        if(f>ff){
             Log.d("brad","Warring");
             img.setVisibility(View.VISIBLE);
         }
-        if(g>expend){
+        if(g>gg){
             Log.d("brad","Warring");
             img.setVisibility(View.VISIBLE);
         }
-        if(h>expend){
+        if(h>hh){
             Log.d("brad","Warring");
             img.setVisibility(View.VISIBLE);
         }
@@ -324,13 +238,6 @@ public class buttoncontrol extends Activity {
     public synchronized void onResume() {
         super.onResume();
         if (D) Log.i(TAG, "+ ON RESUME +");
-
-//        String strIp = rpiwifirobot.mNetworkService.serverIp.toString();
-//        int serverPort =  Integer.valueOf(rpiwifirobot.mNetworkService.mServerPort);
-//        if(D) Log.d(TAG, "strIp = "+strIp);
-//        if(D) Log.d(TAG, "serverPort = " + serverPort);
-        //       int ret = rpiwifirobot.mNetworkService.setServer(strIp, serverPort);
-
     }
 
     @Override
@@ -345,28 +252,6 @@ public class buttoncontrol extends Activity {
         menu.add(0, 0, 0, "Sensor");
         menu.add(0, 1, 0, "Exit");
         menu.add(0, 2, 0, "About");
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case 0:
-                // Sensor Control
-                Intent myIntent = new Intent(buttoncontrol.this, sensorcontrol.class);
-                this.startActivity(myIntent);
-                if (D) Log.d(TAG, "SensorControl Exit!");
-                return true;
-
-            case 1:  // Exit
-                finish();
-                break;
-
-            case 2:  // About
-                Toast.makeText(this, "allan", Toast.LENGTH_SHORT).show();
-                break;
-        }
-
         return true;
     }
     public void back(View v) {
