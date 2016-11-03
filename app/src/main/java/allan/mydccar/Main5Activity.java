@@ -1,6 +1,5 @@
 package allan.mydccar;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -146,6 +145,7 @@ public class Main5Activity extends ActionBarActivity  {
         tsChart4.loadChartData();
 
     }
+
     public void refresh(View v){
         refresh();
     }

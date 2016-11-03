@@ -1,13 +1,19 @@
 package allan.mydccar;
 
 
+import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Message;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.NotificationCompat;
 import android.util.Log;
 import android.view.Menu;
@@ -190,8 +196,29 @@ public class buttoncontrol extends Activity {
 
 
     }
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    private void makeNotification(){
+        Intent intent =new Intent(this,Main5Activity.class);
+        PendingIntent pendingIntent=PendingIntent.getActivity(this,
+                0,
+                intent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+        Notification notification=new Notification.Builder(this)
+                .setSmallIcon(R.drawable.ic_launcher)
+                .setContentTitle("temperture Warring")
+                .setContentText("this is content")
+                .setContentInfo("this is info")
+                .setContentIntent(pendingIntent)
+                .setWhen(System.currentTimeMillis())
+                .build();
+        NotificationManager manager=
+                (NotificationManager)
+                        getSystemService(NOTIFICATION_SERVICE);
+        manager.notify(1,notification);
+    }
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     private  void changeState(){
-        float dd = (float) 30.0;
+        float dd = (float) 35.0;
         float ff = (float) 60.0;
         float gg = (float) 400.0;
         float hh = (float) 1000.0;
@@ -206,21 +233,29 @@ public class buttoncontrol extends Activity {
         if(d>dd){
             Log.d("brad","Warring");
             img.setVisibility(View.VISIBLE);
+            Toast.makeText(this, "偵測到溫度異常", Toast.LENGTH_SHORT).show();
+            makeNotification();
         }
         if(f>ff){
             Log.d("brad","Warring");
             img.setVisibility(View.VISIBLE);
+            Toast.makeText(this, "偵測到濕度異常", Toast.LENGTH_SHORT).show();
+            makeNotification();
         }
         if(g>gg){
             Log.d("brad","Warring");
             img.setVisibility(View.VISIBLE);
+            makeNotification();
         }
         if(h>hh){
             Log.d("brad","Warring");
             img.setVisibility(View.VISIBLE);
+            makeNotification();
         }
 
     }
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+
     private class UIHandler extends android.os.Handler {
         @Override
         public void handleMessage(Message msg) {

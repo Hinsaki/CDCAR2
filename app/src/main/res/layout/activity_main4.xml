@@ -7,7 +7,7 @@
     >
 
     <ImageView
-        android:id="@+id/img"
+        android:id="@+id/imgPicture"
         android:layout_width="match_parent"
         android:layout_height="300dip"
         />
@@ -15,12 +15,20 @@
     <Button
         android:background="@drawable/btn"
         style="@style/ButtonText"
-        android:id="@+id/camera"
+        android:id="@+id/show"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="開啟相機"
 
         android:layout_gravity="center_vertical"
+        />
+    <Button
+        android:background="@drawable/btn"
+        style="@style/ButtonText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="儲存相片"
+        android:id="@+id/btnSavePicture"
         />
 
     <Button
@@ -33,5 +41,16 @@
 
         android:layout_gravity="center_vertical"
         />
+    <Button
+        android:background="@drawable/btn"
+        style="@style/ButtonText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="back"
+        android:text="回上頁"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/button" />
 
 </LinearLayout>
