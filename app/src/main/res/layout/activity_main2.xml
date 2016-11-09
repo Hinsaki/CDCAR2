@@ -7,45 +7,34 @@
 
     android:orientation="vertical"
     android:background="@drawable/bg1"
-    >
+    android:weightSum="1">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CDCAR"
+        android:text="Home"
         android:textSize="36dp"
         />
     <Button
-        android:background="@drawable/btn"
+        android:background="@drawable/cdcargo"
         style="@style/ButtonText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="GO"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:onClick="sc"
-        />
+         />
 
     <Button
-        android:background="@drawable/btn"
+        android:background="@drawable/photo"
         style="@style/ButtonText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="相簿"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:onClick="photo"
         />
     <Button
-        android:background="@drawable/btn"
+        android:background="@drawable/data"
         style="@style/ButtonText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="資料"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:onClick="data"
-        />
-    <Button
-        android:background="@drawable/btn"
-        style="@style/ButtonText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="About"
-        android:onClick="us"
         />
 
 

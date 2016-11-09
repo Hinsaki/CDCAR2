@@ -39,8 +39,8 @@ public class Main5Activity extends ActionBarActivity  {
         tsChannel.setChannelFeedUpdateListener(new ThingSpeakChannel.ChannelFeedUpdateListener() {
             @Override
             public void onChannelFeedUpdated(long channelId, String channelName, ChannelFeed channelFeed) {
-                getSupportActionBar().setTitle(channelName);
-                getSupportActionBar().setSubtitle("Channel " + channelId);
+
+
                 Date lastUpdate = channelFeed.getChannel().getUpdatedAt();
                 Toast.makeText(Main5Activity.this, lastUpdate.toString(), Toast.LENGTH_LONG).show();
             }
@@ -61,7 +61,7 @@ public class Main5Activity extends ActionBarActivity  {
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.MINUTE, -5);
         tsChart = new ThingSpeakLineChart(173441,1);
-        tsChart.setNumberOfEntries(200);
+        tsChart.setNumberOfEntries(100);
         tsChart.setValueAxisLabelInterval(10);
         tsChart.setDateAxisLabelInterval(1);
         tsChart.useSpline(true);
@@ -81,7 +81,7 @@ public class Main5Activity extends ActionBarActivity  {
         });
         tsChart2 = new ThingSpeakLineChart(173441,2);
         tsChart2.loadChartData();
-        tsChart2.setNumberOfEntries(200);
+        tsChart2.setNumberOfEntries(100);
         tsChart2.setValueAxisLabelInterval(10);
         tsChart2.setDateAxisLabelInterval(1);
         tsChart2.useSpline(true);
@@ -101,7 +101,7 @@ public class Main5Activity extends ActionBarActivity  {
         });
         tsChart3 = new ThingSpeakLineChart(173441,3);
         tsChart3.loadChartData();
-        tsChart3.setNumberOfEntries(200);
+        tsChart3.setNumberOfEntries(100);
         tsChart3.setValueAxisLabelInterval(10);
         tsChart3.setDateAxisLabelInterval(1);
         tsChart3.useSpline(false);
@@ -121,7 +121,7 @@ public class Main5Activity extends ActionBarActivity  {
         });
         tsChart4 = new ThingSpeakLineChart(173441,4);
         tsChart4.loadChartData();
-        tsChart4.setNumberOfEntries(200);
+        tsChart4.setNumberOfEntries(100);
         tsChart4.setValueAxisLabelInterval(10);
         tsChart4.setDateAxisLabelInterval(1);
         tsChart4.useSpline(true);

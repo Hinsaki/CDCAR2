@@ -73,7 +73,13 @@
                 android:text="狀態:" />
 
             <ImageView
-                android:id="@+id/img_bad"
+                android:id="@+id/fine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/fine"
+                android:visibility="invisible" />
+            <ImageView
+                android:id="@+id/bad"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/bad"

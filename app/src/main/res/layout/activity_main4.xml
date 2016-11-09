@@ -10,47 +10,46 @@
         android:id="@+id/imgPicture"
         android:layout_width="match_parent"
         android:layout_height="300dip"
+
         />
 
     <Button
+
         android:background="@drawable/btn"
         style="@style/ButtonText"
         android:id="@+id/show"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="開啟相機"
-
-        android:layout_gravity="center_vertical"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="獲取照片"
+        android:layout_gravity="center"
         />
     <Button
         android:background="@drawable/btn"
         style="@style/ButtonText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:text="儲存相片"
         android:id="@+id/btnSavePicture"
+        android:layout_gravity="center"
         />
 
     <Button
         android:background="@drawable/btn"
         style="@style/ButtonText"
         android:id="@+id/photo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:text="開啟相簿"
-
-        android:layout_gravity="center_vertical"
+        android:layout_gravity="center"
         />
     <Button
         android:background="@drawable/btn"
         style="@style/ButtonText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:onClick="back"
         android:text="回上頁"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_gravity="center"
         android:id="@+id/button" />
 
 </LinearLayout>

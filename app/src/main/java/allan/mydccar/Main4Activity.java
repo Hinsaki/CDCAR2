@@ -65,7 +65,7 @@ public class Main4Activity extends AppCompatActivity {
                         imgPicture. setImageBitmap (result);
                         super.onPostExecute(result);
                     }
-                }.execute("http://www.99166.com/article/UpLoadFile/UploadFile/20121025111436571.jpg");
+                }.execute("http://10.2.1.151:8080?action=snapshot");
             }
         });
         Button mPhoto = (Button) findViewById(R.id.photo);

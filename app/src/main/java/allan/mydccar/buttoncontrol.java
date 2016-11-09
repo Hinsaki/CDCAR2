@@ -58,6 +58,7 @@ public class buttoncontrol extends Activity {
     private StringBuffer sb_three ;
     private StringBuffer sb_four ;
     private ImageView img;
+    private ImageView img1;
     private Timer mTimer;
     private MyTread mt1;
 
@@ -70,9 +71,9 @@ public class buttoncontrol extends Activity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.buttoncontrol);
+
         mesg_one = (TextView) findViewById(R.id.json_hh);
         mesg_two = (TextView) findViewById(R.id.json_co2);
         mesg_three = (TextView) findViewById(R.id.json_e);
@@ -80,13 +81,16 @@ public class buttoncontrol extends Activity {
         cmgr = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
         NetworkInfo info = cmgr.getActiveNetworkInfo();
         handler = new UIHandler();
-        img = (ImageView) findViewById(R.id.img_bad);
+        img = (ImageView) findViewById(R.id.fine);
+        img1 = (ImageView) findViewById(R.id.bad);
         mTimer = new Timer();
         setTimerTask();
         m_WV = (WebView) findViewById(R.id.webview);
         m_WV1 = (WebView) findViewById(R.id.webview1);
         WebSettings webSettings = m_WV.getSettings();
         webSettings.setJavaScriptEnabled(true);
+        m_WV.getSettings().setUseWideViewPort(true);
+        m_WV.getSettings().setLoadWithOverviewMode(true);
         WebSettings webSettings1 = m_WV1.getSettings();
         webSettings1.setJavaScriptEnabled(true);
 
@@ -219,7 +223,7 @@ public class buttoncontrol extends Activity {
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     private  void changeState(){
         float dd = (float) 35.0;
-        float ff = (float) 60.0;
+        float ff = (float) 35.0;
         float gg = (float) 400.0;
         float hh = (float) 1000.0;
         float d = Float.valueOf(String.valueOf(sb_one)).floatValue();
@@ -230,26 +234,44 @@ public class buttoncontrol extends Activity {
 
 
         Log.d("brad","float:"+d);
-        if(d>dd){
-            Log.d("brad","Warring");
-            img.setVisibility(View.VISIBLE);
-            Toast.makeText(this, "偵測到溫度異常", Toast.LENGTH_SHORT).show();
+        if(d>30){
+            Log.d("brad","Hot");
+            img.setVisibility(View.INVISIBLE);
+            img1.setVisibility(View.VISIBLE);
+            Toast.makeText(this, "超熱!小心中暑!", Toast.LENGTH_SHORT).show();
             makeNotification();
         }
-        if(f>ff){
-            Log.d("brad","Warring");
-            img.setVisibility(View.VISIBLE);
-            Toast.makeText(this, "偵測到濕度異常", Toast.LENGTH_SHORT).show();
-            makeNotification();
-        }
-        if(g>gg){
-            Log.d("brad","Warring");
+        else if(d>20||d<30){
+            Log.d("brad","warm");
             img.setVisibility(View.VISIBLE);
             makeNotification();
         }
-        if(h>hh){
+        else if(d<20){
+            Log.d("brad","Cold");
+            img.setVisibility(View.INVISIBLE);
+            img1.setVisibility(View.VISIBLE);
+            Toast.makeText(this, "天氣有點涼，小心感冒唷!", Toast.LENGTH_SHORT).show();
+            makeNotification();
+        }
+        else if(f>ff){
             Log.d("brad","Warring");
-            img.setVisibility(View.VISIBLE);
+            img.setVisibility(View.INVISIBLE);
+            img1.setVisibility(View.VISIBLE);
+            Toast.makeText(this, "濕度過高，建議開啟除濕機", Toast.LENGTH_SHORT).show();
+            makeNotification();
+        }
+        else if(h>gg){
+            Log.d("brad","Warring");
+            img.setVisibility(View.INVISIBLE);
+            img1.setVisibility(View.VISIBLE);
+            Toast.makeText(this, "偵測到瓦斯外洩!!", Toast.LENGTH_SHORT).show();
+            makeNotification();
+        }
+        else if(g>hh){
+            Log.d("brad","Warring");
+            img.setVisibility(View.INVISIBLE);
+            img1.setVisibility(View.VISIBLE);
+            Toast.makeText(this, "偵測到空氣汙染，請戴口罩!", Toast.LENGTH_SHORT).show();
             makeNotification();
         }
 
